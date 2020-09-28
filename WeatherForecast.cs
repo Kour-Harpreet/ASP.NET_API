@@ -2,6 +2,7 @@ using System;
 
 namespace ASP.NetReact
 {
+    // A model for the demo project which models the weather for a given day.
     public class WeatherForecast
     {
         public DateTime Date { get; set; }

@@ -8,6 +8,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace ASP.NetReact
 {
+    // File Summary: The file responsible for setting configurations for the application, and calling everything else once the app is configured (Program.cs calls this).
+
+
     public class Startup
     {
         public Startup(IConfiguration configuration)

@@ -7,6 +7,13 @@ using Microsoft.Extensions.Logging;
 
 namespace ASP.NetReact.Controllers
 {
+
+    // File Summary: Our API controller that our front end will make calls to.
+
+    // In-Class Practice:
+    // - Add a precipitation summary to the data. (Random selection of: Rain, Snow, Sleet, Hail, Cats and Dogs)
+    // - Ensure that it is functional on the output page.
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
