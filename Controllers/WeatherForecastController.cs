@@ -14,6 +14,11 @@ namespace ASP.NetReact.Controllers
     // - Add a precipitation summary to the data. (Random selection of: Rain, Snow, Sleet, Hail, Cats and Dogs)
     // - Ensure that it is functional on the output page.
 
+
+    // - Model: /WeatherForecast.cs
+    // - Controller: /Controllers/WeatherForecastController.cs
+    // - "View": /ClientApp/src/components/FetchData.js
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -21,6 +26,10 @@ namespace ASP.NetReact.Controllers
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+        private static readonly string[] Precipitations = new[]
+      {
+            "Rain", "Snow", "Sleet", "Hail", "Cats and Dogs"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
@@ -38,7 +47,8 @@ namespace ASP.NetReact.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                Precipitation = Precipitations[rng.Next(Precipitations.Length)]
             })
             .ToArray();
         }

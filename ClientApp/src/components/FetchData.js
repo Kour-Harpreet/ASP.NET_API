@@ -17,31 +17,32 @@ export class FetchData extends Component {
   }
 
     static renderForecastsTable(forecasts) {
-      // 5) When the async call comes back, render will call this method rather than rendering "Loading...", which will create our table.
-
-    return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-          </tr>
-        </thead>
-        <tbody>
-          {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
-              <td>{forecast.temperatureC}</td>
-              <td>{forecast.temperatureF}</td>
-              <td>{forecast.summary}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    );
-  }
+        // 5) When the async call comes back, render will call this method rather than rendering "Loading...", which will create our table.
+        return (
+            <table className='table table-striped' aria-labelledby="tabelLabel">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Temp. (C)</th>
+                        <th>Temp. (F)</th>
+                        <th>Summary</th>
+                        <th>Precipitation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {forecasts.map(forecast =>
+                        <tr key={forecast.date}>
+                            <td>{forecast.date}</td>
+                            <td>{forecast.temperatureC}</td>
+                            <td>{forecast.temperatureF}</td>
+                            <td>{forecast.summary}</td>
+                            <td>{forecast.precipitation}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        );
+    }
 
     render() {
     // 4) When we render, this ternary statement will with print loading, or render the forecasts table depending if the async call has come back yet.
@@ -66,10 +67,14 @@ export class FetchData extends Component {
 
     // We are awaiting the fetch of weatherforecast. When it returns, assign it to response.
 
+
+    /*important: this is used for fetching*/
         const response = await fetch('weatherforecast');
         // Then we await the conversion to json and create a promised value for the method.
         const data = await response.json();
         // Then we can set the state to the data and stop the loading phase, which will trigger a re-render. 
     this.setState({ forecasts: data, loading: false });
+    
+    
   }
 }
