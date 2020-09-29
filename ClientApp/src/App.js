@@ -9,6 +9,7 @@ import { Counter } from './components/Counter';
 import { GetPeople } from './components/GetPeople';
 
 import './custom.css'
+import { CreatePerson } from './components/CreatePerson';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -20,6 +21,7 @@ export default class App extends Component {
         <Route path='/counter' component={Counter} />
             <Route path='/fetch-data' component={FetchData} />
             <Route path='/admin/getpeople' component={GetPeople} />
+            <Route path='/admin/createperson' component={CreatePerson} />
       </Layout>
     );
   }
