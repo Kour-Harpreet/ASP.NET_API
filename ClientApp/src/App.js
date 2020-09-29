@@ -10,6 +10,8 @@ import { GetPeople } from './components/GetPeople';
 
 import './custom.css'
 import { CreatePerson } from './components/CreatePerson';
+import { ModifyPerson } from './components/ModifyPerson';
+
 
 export default class App extends Component {
   static displayName = App.name;
@@ -22,6 +24,7 @@ export default class App extends Component {
             <Route path='/fetch-data' component={FetchData} />
             <Route path='/admin/getpeople' component={GetPeople} />
             <Route path='/admin/createperson' component={CreatePerson} />
+            <Route path='/admin/modifyperson' component={ModifyPerson} />
       </Layout>
     );
   }
